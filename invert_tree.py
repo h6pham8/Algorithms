@@ -24,3 +24,19 @@ def invert_tree(root):
 
     return root
 
+def invert_tree_recursive(root):
+
+    if root:
+        curr = root
+    else:
+        return root
+
+    hold = curr.left
+    curr.left = curr.right
+    curr.right = hold
+
+    if curr.left:
+        invert_tree_recursive(curr.left)
+    if curr.right:
+        invert_tree_recursive(curr.right)
+
